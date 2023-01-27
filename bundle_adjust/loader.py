@@ -40,7 +40,9 @@ def read_image_size(im_fname):
     useful when dealing with huge images
     """
     with rasterio.open(im_fname) as f:
+        
         print(im_fname, "f.height, f.width:", f.height, f.width) #james
+        
         h, w = f.height, f.width
     return h, w
 
@@ -192,12 +194,23 @@ def load_image(path_to_geotiff, offset=None, equalize=False):
     It is possible to specify a window to read a specific region of the image
     """
     if offset is None:
+        
+        print("NONE") #james
+        
         with rasterio.open(path_to_geotiff) as src:
             im = src.read().astype(np.float)
     else:
+        
+        print("offset!:", offset) #james
+        
         y0, x0, h, w = offset["row0"], offset["col0"], offset["height"], offset["width"]
         with rasterio.open(path_to_geotiff) as src:
             im = src.read(window=((y0, y0 + h), (x0, x0 + w))).squeeze().astype(np.float)
+            
+            tmp = src.read(window=((y0, y0 + h), (x0, x0 + w))).astype(np.float) #james
+            print("tmp.shape:", tmp.shape) #james
+
+    print("im.shape:", im.shape, len(im.shape)) #james
 
     # we only work with 1-band images
     if len(im.shape) > 2:
