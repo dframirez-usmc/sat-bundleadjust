@@ -40,6 +40,7 @@ def read_image_size(im_fname):
     useful when dealing with huge images
     """
     with rasterio.open(im_fname) as f:
+        print(im_fname, "f.height, f.width:", f.height, f.width) #james
         h, w = f.height, f.width
     return h, w
 
