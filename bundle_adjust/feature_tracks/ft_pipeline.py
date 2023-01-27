@@ -50,6 +50,9 @@ class FeatureTracksPipeline:
         self.output_dir = output_dir
         os.makedirs(output_dir, exist_ok=True)
         self.images = local_data["images"]
+        
+        print("self.images:", self.images) #james
+        
         self.n_adj = local_data["n_adj"]
         self.aoi = local_data["aoi"]
         self.config = ft_utils.init_feature_tracks_config(tracks_config)
@@ -77,6 +80,9 @@ class FeatureTracksPipeline:
         # get image filenames where it is necessary to extract keypoints
         image_paths = [im.geotiff_path for im in self.images]
         offsets = [im.offset for im in self.images]
+        
+        print("offsets:", offsets) #james
+        
         self.features = ["{}/features/{}.npy".format(self.output_dir, loader.get_id(p)) for p in image_paths]
         self.features_utm = ["{}/features_utm/{}.npy".format(self.output_dir, loader.get_id(p)) for p in image_paths]
 
