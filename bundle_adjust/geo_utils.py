@@ -59,7 +59,13 @@ def lonlat_from_utm(easts, norths, zonestring):
     """
     convert utm to lon-lat
     """
-    proj_src = pyproj.Proj("+proj=utm +zone=%s" % zonestring)
+    #proj_src = pyproj.Proj("+proj=utm +zone=%s" % zonestring) #james
+    
+    if "S" in zonestring: #james
+        proj_src = pyproj.Proj("+proj=utm +zone=%s south=True" % zonestring) #james
+    else: #james
+        proj_src = pyproj.Proj("+proj=utm +zone=%s" % zonestring) #james
+    
     proj_dst = pyproj.Proj("+proj=latlong")
     return pyproj.transform(proj_src, proj_dst, easts, norths)
 
