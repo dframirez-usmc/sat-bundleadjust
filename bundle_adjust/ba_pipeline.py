@@ -72,9 +72,12 @@ class BundleAdjustmentPipeline:
 
         # read bundle adjustment input data
         self.in_dir = ba_data["in_dir"]
+        
         self.out_dir = ba_data["out_dir"]
         os.makedirs(self.out_dir, exist_ok=True)
         self.images = ba_data["images"]
+        
+        print("ba_pipeline.py - self.images:", self.images) #james
 
         # read the feature tracking configuration
         self.tracks_config = ft_utils.init_feature_tracks_config(tracks_config)
@@ -280,11 +283,14 @@ class BundleAdjustmentPipeline:
         if len(disconnected_cameras) > 0:
             # there was a small group of disconnected cameras which we will discard
             # the pipeline will continue and try to correct the cameras that are left
-            self.drop_disconnected_cameras(disconnected_cameras)
+            
+            ##self.drop_disconnected_cameras(disconnected_cameras) #james
+            
             affected_geotiff_fnames = [os.path.basename(self.images[idx].geotiff_path) for idx in disconnected_cameras]
             flush_print("Cameras {} were dropped due to insufficient feature tracks".format(disconnected_cameras))
             flush_print("The affected images are:\n{}\n".format("\n".join(affected_geotiff_fnames)))
-
+            self.drop_disconnected_cameras(disconnected_cameras) #james
+            
     def initialize_pts3d(self):
         """
         this function initializes the ECEF coordinates of the 3d points that project into the feature tracks
