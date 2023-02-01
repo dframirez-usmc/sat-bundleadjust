@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
-from bundle_adjust.loader import flush_print
+from my_bundle_adjust.loader import flush_print
 
 
 def rotate_rodrigues(pts, axis_angle):
@@ -144,7 +144,7 @@ def project_rpc(pts3d, rpcs, cam_params, pts_ind, cam_ind):
     Returns:
         pts_proj: nx2 array with the 2d (col, row) coordinates of each projection
     """
-    from bundle_adjust.cam_utils import apply_rpc_projection
+    from my_bundle_adjust.cam_utils import apply_rpc_projection
 
     pts3d_adj = adjust_pts3d(pts3d[pts_ind], cam_params[cam_ind])
     pts_proj = np.zeros((pts_ind.shape[0], 2), dtype=np.float32)
@@ -268,7 +268,7 @@ def run_ba_optimization(p, ls_params=None, verbose=False, plots=True):
     ls_params = init_optimization_config(ls_params)
     if verbose:
         print("\nRunning bundle adjustment...")
-        from bundle_adjust.loader import display_dict
+        from my_bundle_adjust.loader import display_dict
 
         display_dict(ls_params)
 
@@ -416,8 +416,8 @@ def save_heatmap_of_reprojection_error(img_path, p, err, input_ims_footprints_lo
         smooth (optional): sigma for gaussian filtering, set to 0 to visualize raw interpolation
     """
     from scipy.ndimage import gaussian_filter
-    from bundle_adjust import geo_utils
-    from bundle_adjust import loader
+    from my_bundle_adjust import geo_utils
+    from my_bundle_adjust import loader
     from mpl_toolkits.axes_grid1 import make_axes_locatable
 
     tif = True if os.path.splitext(img_path)[1] == ".tif" else False
