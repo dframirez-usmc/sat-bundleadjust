@@ -10,8 +10,8 @@ import numpy as np
 import os
 
 from . import ft_opencv, ft_s2p
-from bundle_adjust import geo_utils
-from bundle_adjust.loader import flush_print, get_id
+from my_bundle_adjust import geo_utils
+from my_bundle_adjust.loader import flush_print, get_id
 
 
 def compute_pairs_to_match(init_pairs, footprints, optical_centers,
@@ -231,7 +231,7 @@ def filter_matches_inconsistent_utm_coords(matches_ij, utm_i, utm_j):
     pt_j_utm = utm_j[matches_ij[:, 1]]
 
     all_utm_distances = np.linalg.norm(pt_i_utm - pt_j_utm, axis=1)
-    from bundle_adjust.ba_outliers import get_elbow_value
+    from my_bundle_adjust.ba_outliers import get_elbow_value
 
     utm_thr, success = get_elbow_value(all_utm_distances, max_outliers_percent=20, verbose=False)
     utm_thr = utm_thr + 5 if success else np.max(all_utm_distances)
