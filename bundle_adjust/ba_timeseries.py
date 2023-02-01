@@ -20,9 +20,9 @@ import rpcm
 import json
 import shutil
 
-from bundle_adjust import loader, ba_utils, geo_utils, cam_utils
-from bundle_adjust.ba_pipeline import BundleAdjustmentPipeline
-from bundle_adjust.loader import flush_print
+from my_bundle_adjust import loader, ba_utils, geo_utils, cam_utils
+from my_bundle_adjust.ba_pipeline import BundleAdjustmentPipeline
+from my_bundle_adjust.loader import flush_print
 
 
 def get_acquisition_date(geotiff_path):
@@ -352,7 +352,7 @@ class Scene:
         self.ba_data["images"] = self.images_adj + self.images_new
         flush_print("\n...bundle adjustment input data is ready !\n\n")
 
-    def bundle_adjust(self, feature_detection=True):
+    def my_bundle_adjust(self, feature_detection=True):
 
         import timeit
 
