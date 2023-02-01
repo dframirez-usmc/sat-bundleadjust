@@ -7,8 +7,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import os
-from bundle_adjust import loader
-from bundle_adjust import cam_utils
+from my_bundle_adjust import loader
+from my_bundle_adjust import cam_utils
 
 
 def rpc_rpcm_to_geotiff_format(input_dict):
@@ -189,7 +189,7 @@ def rescale_RPC(rpc, alpha):
 # compute the union of all pair intersections in a list of lonlat_geojson
 def get_aoi_where_at_least_two_lonlat_geojson_overlap(lonlat_geojson_list):
 
-    from bundle_adjust import geo_utils
+    from my_bundle_adjust import geo_utils
 
     from itertools import combinations
 
@@ -220,7 +220,7 @@ def epsg_from_utm_zone(utm_zone, datum="WGS84"):
 
 # display lonlat_geojson list over map
 def display_lonlat_geojson_list_over_map(lonlat_geojson_list, zoom_factor=14, special_indices=[]):
-    from bundle_adjust import vistools
+    from my_bundle_adjust import vistools
 
     mymap = vistools.clickablemap(zoom=zoom_factor)
     for idx, aoi in enumerate(lonlat_geojson_list):
