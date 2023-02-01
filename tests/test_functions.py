@@ -1,6 +1,6 @@
 import numpy as np
 
-from bundle_adjust.ba_rotate import (
+from my_bundle_adjust.ba_rotate import (
     R_to_quaternion,
     euler_angles_from_R,
     euler_angles_to_R,
@@ -8,7 +8,7 @@ from bundle_adjust.ba_rotate import (
     quaternion_to_euler,
     quaternion_to_R,
 )
-from bundle_adjust.cam_utils import (
+from my_bundle_adjust.cam_utils import (
     compose_affine_camera,
     compose_perspective_camera,
     decompose_affine_camera,
