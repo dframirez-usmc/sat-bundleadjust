@@ -25,9 +25,9 @@ import srtm4
 import copy
 import shutil
 
-from bundle_adjust import ba_core, ba_outliers, ba_params, ba_rpcfit
-from bundle_adjust import loader, cam_utils, geo_utils
-from bundle_adjust.loader import flush_print
+from my_bundle_adjust import ba_core, ba_outliers, ba_params, ba_rpcfit
+from my_bundle_adjust import loader, cam_utils, geo_utils
+from my_bundle_adjust.loader import flush_print
 from .feature_tracks import ft_utils
 
 
@@ -251,7 +251,7 @@ class BundleAdjustmentPipeline:
             args = [os.path.join(self.in_dir, "predefined_matches"), output_dir, local_data, self.tracks_config]
             feature_tracks, self.feature_tracks_running_time = ft_utils.load_tracks_from_predefined_matches(*args)
         else:
-            from bundle_adjust.feature_tracks.ft_pipeline import FeatureTracksPipeline
+            from my_bundle_adjust.feature_tracks.ft_pipeline import FeatureTracksPipeline
 
             args = [output_dir, output_dir, local_data] # output dir is changed !
             ft_pipeline = FeatureTracksPipeline(*args, tracks_config=self.tracks_config)
@@ -482,7 +482,7 @@ class BundleAdjustmentPipeline:
             to_print = [len(missing_cams), missing_cams]
             print("         {} missing cameras from the largest connected component: {}\n".format(*to_print))
 
-        #from bundle_adjust import ba_utils
+        #from my_bundle_adjust import ba_utils
         #ba_utils.display_lonlat_geojson_list_over_map([im.lonlat_geojson for im in self.images], 12, missing_cams)
 
     def fix_reference_camera(self):
