@@ -9,8 +9,9 @@ Authors: Roger Mari, Carlo de Franchis, Enric Meinhardt-Llopis, Jeremy Anger, Ga
 Install the `bundle_adjust` package:
 
 ```bash
-git clone https://github.com/centreborelli/sat-bundleadjust.git
+git clone https://github.com/dframirez-usmc/sat-bundleadjust.git
 cd sat-bundleadjust
+mv bundle_adjust/ my_bundle_adjust
 pip install -e .
 ```
 
