@@ -12,7 +12,7 @@ and other secondary tasks. The considered models are: RPC and perspective or aff
 import matplotlib.pyplot as plt
 import numpy as np
 
-from bundle_adjust import geo_utils, loader
+from my_bundle_adjust import geo_utils, loader
 
 class SatelliteImage:
 
