@@ -8,7 +8,7 @@ from setuptools import setup
 from setuptools.command import develop, build_py
 
 _version_re = re.compile(r"__version__\s+=\s+(.*)")
-package_name = "bundle_adjust"
+package_name = "my_bundle_adjust"
 
 with open(os.path.join(package_name, "__init__.py"), "rb") as f:
     version = str(
@@ -33,7 +33,7 @@ class CustomDevelop(develop.develop, object):
 
 class CustomBuildPy(build_py.build_py, object):
     """
-    Class needed for "pip install bundle_adjust"
+    Class needed for "pip install my_bundle_adjust"
     """
     def run(self):
         super(CustomBuildPy, self).run()
@@ -64,7 +64,7 @@ setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     author_email="",
-    packages=["bundle_adjust", "bundle_adjust.feature_tracks", "bundle_adjust.s2p"],
+    packages=["my_bundle_adjust", "my_bundle_adjust.feature_tracks", "my_bundle_adjust.s2p"],
     install_requires=install_requires,
     extras_require=extras_require,
     cmdclass={'develop': CustomDevelop,
@@ -73,6 +73,6 @@ setup(
     python_requires=">=3.6",
     entry_points="""
               [console_scripts]
-              bundle_adjust=bundle_adjust.cli:main
+              my_bundle_adjust=my_bundle_adjust.cli:main
           """,
 )
