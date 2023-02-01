@@ -12,8 +12,8 @@ import numpy as np
 import timeit
 import os
 
-from bundle_adjust import ba_core
-from bundle_adjust.loader import flush_print
+from my_bundle_adjust import ba_core
+from my_bundle_adjust.loader import flush_print
 
 
 def build_connectivity_matrix(C, min_matches=10):
@@ -61,7 +61,7 @@ def compute_C_reproj(C, pts3d, cameras, cam_model, pairs_to_triangulate, camera_
     """
 
     # set ba parameters
-    from bundle_adjust.ba_params import BundleAdjustmentParameters
+    from my_bundle_adjust.ba_params import BundleAdjustmentParameters
 
     args = [C, pts3d, cameras, cam_model, pairs_to_triangulate, camera_centers]
     d = {"reduce": False, "verbose": False}
