@@ -18,10 +18,10 @@ import timeit
 
 import numpy as np
 
-from bundle_adjust import loader, geo_utils
+from my_bundle_adjust import loader, geo_utils
 from . import ft_opencv, ft_s2p, ft_match, ft_utils
 
-from bundle_adjust.loader import flush_print
+from my_bundle_adjust.loader import flush_print
 
 
 class FeatureTracksPipeline:
@@ -143,8 +143,8 @@ class FeatureTracksPipeline:
         """
 
         def init_F_pair_to_match(h, w, rpc_i, rpc_j):
-            from bundle_adjust.s2p.estimation import affine_fundamental_matrix
-            from bundle_adjust.s2p.rpc_utils import matches_from_rpc
+            from my_bundle_adjust.s2p.estimation import affine_fundamental_matrix
+            from my_bundle_adjust.s2p.rpc_utils import matches_from_rpc
 
             rpc_matches = matches_from_rpc(rpc_i, rpc_j, 0, 0, w, h, 5)
             Fij = affine_fundamental_matrix(rpc_matches)
