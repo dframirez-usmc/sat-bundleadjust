@@ -5,8 +5,8 @@ import shutil
 
 import numpy as np
 
-import bundle_adjust
-from bundle_adjust import ba_timeseries, loader
+import my_bundle_adjust
+from my_bundle_adjust import ba_timeseries, loader
 
 
 def main():
@@ -58,7 +58,7 @@ def main():
         sys.stderr = log_file
 
     # load scene and run BA
-    bundle_adjust.main(args.config)
+    my_bundle_adjust.main(args.config)
 
     if not args.verbose:
         # close logfile
