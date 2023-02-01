@@ -6,7 +6,7 @@ import tempfile
 import numpy as np
 import rpcm
 
-import bundle_adjust
+import my_bundle_adjust
 
 
 def test_ba():
@@ -32,7 +32,7 @@ def test_ba():
     json.dump(bundle_config, open(cfg_path, "w"))
 
     # Run Bundle Adjustment
-    bundle_adjust.main(cfg_path)
+    my_bundle_adjust.main(cfg_path)
 
     # Assertions
     # Load new RPCs & Update index
