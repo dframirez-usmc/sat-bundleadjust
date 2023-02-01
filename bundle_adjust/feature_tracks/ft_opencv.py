@@ -10,9 +10,9 @@ import numpy as np
 import cv2
 import os
 
-from bundle_adjust.loader import flush_print, get_id
-from bundle_adjust import loader
-from bundle_adjust.feature_tracks import ft_utils
+from my_bundle_adjust.loader import flush_print, get_id
+from my_bundle_adjust import loader
+from my_bundle_adjust.feature_tracks import ft_utils
 
 def opencv_detect_SIFT(geotiff_path, mask_path=None, offset=None, tracks_config=None):
     """
