@@ -10,9 +10,9 @@ Code of the s2p: https://github.com/cmla/s2p
 import numpy as np
 import os
 
-from bundle_adjust.loader import flush_print, get_id
-from bundle_adjust import loader
-from bundle_adjust.feature_tracks import ft_utils
+from my_bundle_adjust.loader import flush_print, get_id
+from my_bundle_adjust import loader
+from my_bundle_adjust.feature_tracks import ft_utils
 
 
 def detect_features_image_sequence(geotiff_paths, mask_paths=None, offsets=None, tracks_config=None,
@@ -34,7 +34,7 @@ def detect_features_image_sequence(geotiff_paths, mask_paths=None, offsets=None,
                   each row/keypoint is represented by 132 values:
                   (col, row, scale, orientation) in columns 0-3 and (sift_descriptor) in the following 128 columns
     """
-    from bundle_adjust.s2p.sift import keypoints_from_nparray
+    from my_bundle_adjust.s2p.sift import keypoints_from_nparray
 
     # default parameters
     config = ft_utils.init_feature_tracks_config(tracks_config)
@@ -145,7 +145,7 @@ def s2p_match_SIFT(s2p_features_i, s2p_features_j, Fij, dst_thr=0.6, ransac_thr=
     epipolar_thr = 20
     model = "fundamental"
 
-    from bundle_adjust.s2p.sift import keypoints_match
+    from my_bundle_adjust.s2p.sift import keypoints_match
 
     matching_args = [
         s2p_features_i,
