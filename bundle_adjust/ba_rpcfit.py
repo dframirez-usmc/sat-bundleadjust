@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import rpcm
 
-from bundle_adjust import ba_core, cam_utils, geo_utils
+from my_bundle_adjust import ba_core, cam_utils, geo_utils
 
 
 def poly_vect(x, y, z):
