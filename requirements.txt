@@ -6,7 +6,7 @@ matplotlib
 numba
 numpy
 opencv-contrib-python
-rpcm @ git+https://github.com/cmla/rpcm.git@localization-origin
+rpcm @ git+https://github.com/centreborelli/rpcm.git@localization-origin
 scipy
 shapely
 networkx
